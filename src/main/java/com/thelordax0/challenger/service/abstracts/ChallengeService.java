@@ -10,4 +10,6 @@ public interface ChallengeService {
     List<GetAllChallengesResponse> getAll();
     GetByIdChallengeResponse getById(int id);
     void add(CreateChallengRequest createChallengRequest);
+
+    void deleteById(int id);
 }

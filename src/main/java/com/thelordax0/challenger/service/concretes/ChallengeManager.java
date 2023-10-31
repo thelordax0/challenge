@@ -45,4 +45,9 @@ public class ChallengeManager implements ChallengeService {
         this.challengeRepository.save(challenge);
 
     }
+
+    @Override
+    public void deleteById(int id) {
+        this.challengeRepository.deleteById(id);
+    }
 }

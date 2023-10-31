@@ -22,13 +22,19 @@ public class ChallengeControllers {
     }
 
     @GetMapping("/{id}")
-    public GetByIdChallengeResponse getAll(@PathVariable int id){
+    public GetByIdChallengeResponse getById(@PathVariable int id){
         return this.challengeService.getById(id);
     }
 
     @PutMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void getAll(@RequestBody CreateChallengRequest createChallengRequest){
+    public void add(@RequestBody CreateChallengRequest createChallengRequest){
          this.challengeService.add(createChallengRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+
+         this.challengeService.deleteById(id);
     }
 }

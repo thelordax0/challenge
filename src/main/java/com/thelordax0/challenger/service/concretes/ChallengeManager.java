@@ -1,6 +1,7 @@
 package com.thelordax0.challenger.service.concretes;
 
 import com.thelordax0.challenger.core.utils.mappers.ModelMapperService;
+import com.thelordax0.challenger.core.utils.requests.CreateChallengRequest;
 import com.thelordax0.challenger.core.utils.responses.GetAllChallengesResponse;
 import com.thelordax0.challenger.core.utils.responses.GetByIdChallengeResponse;
 import com.thelordax0.challenger.entities.Challenge;
@@ -34,5 +35,14 @@ public class ChallengeManager implements ChallengeService {
         GetByIdChallengeResponse getByIdChallengeResponse=this.modelMapperService.forResponse().map(challenge,GetByIdChallengeResponse.class);
 
         return getByIdChallengeResponse;
+    }
+
+    @Override
+    public void add(CreateChallengRequest createChallengRequest) {
+        Challenge challenge=this.modelMapperService.forResponse().map(createChallengRequest,Challenge.class);
+
+
+        this.challengeRepository.save(challenge);
+
     }
 }

@@ -1,13 +1,12 @@
 package com.thelordax0.challenger.api;
 
+import com.thelordax0.challenger.core.utils.requests.CreateChallengRequest;
 import com.thelordax0.challenger.core.utils.responses.GetAllChallengesResponse;
 import com.thelordax0.challenger.core.utils.responses.GetByIdChallengeResponse;
 import com.thelordax0.challenger.service.abstracts.ChallengeService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @AllArgsConstructor
@@ -25,5 +24,11 @@ public class ChallengeControllers {
     @GetMapping("/{id}")
     public GetByIdChallengeResponse getAll(@PathVariable int id){
         return this.challengeService.getById(id);
+    }
+
+    @PutMapping()
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public void getAll(@RequestBody CreateChallengRequest createChallengRequest){
+         this.challengeService.add(createChallengRequest);
     }
 }

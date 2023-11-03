@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateChallengRequest {
+public class CreateChallengeRequest {
 
     private String name;
 

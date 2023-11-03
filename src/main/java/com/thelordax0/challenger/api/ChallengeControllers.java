@@ -1,6 +1,6 @@
 package com.thelordax0.challenger.api;
 
-import com.thelordax0.challenger.core.utils.requests.CreateChallengRequest;
+import com.thelordax0.challenger.core.utils.requests.CreateChallengeRequest;
 import com.thelordax0.challenger.core.utils.responses.GetAllChallengesResponse;
 import com.thelordax0.challenger.core.utils.responses.GetByIdChallengeResponse;
 import com.thelordax0.challenger.service.abstracts.ChallengeService;
@@ -28,13 +28,12 @@ public class ChallengeControllers {
 
     @PutMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void add(@RequestBody CreateChallengRequest createChallengRequest){
+    public void add(@RequestBody CreateChallengeRequest createChallengRequest){
          this.challengeService.add(createChallengRequest);
     }
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id){
-
          this.challengeService.deleteById(id);
     }
 }

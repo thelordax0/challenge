@@ -1,6 +1,7 @@
 package com.thelordax0.challenger.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "challenges")
 public class Challenge{
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +23,7 @@ public class Challenge{
     @Column(name = "price")
     private double price;
 
+    @Column(name = "description")
+    private String description;
 
 }
